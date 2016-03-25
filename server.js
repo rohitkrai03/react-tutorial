@@ -30,7 +30,7 @@ app.use(function(req, res, next) {
 });
 
 
-router.route('/data')
+router.route('/comments')
     .get(function(req, res){
         fs.readFile(COMMENTS_FILE, function(err, data){
             if(err) {

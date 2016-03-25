@@ -1,5 +1,5 @@
-{
-    "id": 1,
-    "author": "Rohit",
-    "text": "Nothing Right Now."
-}
+[
+    {"id": 1, "author": "Rohit", "text": "Nothing Right Now."},
+    {"id": 2, "author": "Rohit", "text": "This is one comment"},
+    {"id": 3, "author": "Aryan", "text": "This is *another* comment"}
+]
