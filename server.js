@@ -32,32 +32,32 @@ app.use(function(req, res, next) {
 
 router.route('/comments')
     .get(function(req, res){
-        fs.readFile(COMMENTS_FILE, function(err, data){
+        fs.readFile(COMMENTS_FILE, function(err, comments){
             if(err) {
                 console.error(err);
                 process.exit(1);
             }
-            res.json(JSON.parse(data));
+            res.json(JSON.parse(comments));
         });
     })
 
     .post(function(req, res){
-        fs.readFile(COMMENTS_FILE, function(err, data){
+        fs.readFile(COMMENTS_FILE, function(err, comments){
             if(err) {
                 console.error(err);
                 process.exit(1);
             }
-            var data = JSON.parse(data);
+            var comments = JSON.parse(comments);
             // NOTE: In a real implementation, we would likely rely on a database or
             // some other approach (e.g. UUIDs) to ensure a globally unique id. We'll
             // treat Date.now() as unique-enough for our purposes.
-            var newData = {
+            var newComment = {
                 id: Date.now(),
                 author: req.body.author,
                 text: req.body.text
             }
-            data.push(newData);
-            fs.writeFile(COMMENTS_FILE, JSON.stringify(data, null, 4), function(err){
+            comments.push(newComment);
+            fs.writeFile(COMMENTS_FILE, JSON.stringify(comments, null, 4), function(err){
                 if (err) {
                     console.error(err);
                     process.exit(1);
