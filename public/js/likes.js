@@ -1,5 +1,5 @@
 var LikeButton = React.createClass({
-    gotInitialState: function(){
+    getInitialState: function(){
         return { liked: false }
     },
     handleClick: function(){
